@@ -1,11 +1,12 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react'
 
 const Header = () => {
     return (
         <header className='px-10 py-4'>
-            <nav className='flex justify-between'>
-                <div className="logo--side flex items-center">
+            <nav className='flex relative justify-start items-center '>
                     <Link href="/">
                         <Image src="/images/logo.svg" width="100" height="30" alt='logo' />
                     </Link>
@@ -27,9 +28,8 @@ const Header = () => {
                             </Link>
                         </li>
                     </ul>
-                </div>
 
-                <ul className='flex items-center gap-5'>
+                <ul className='flex items-center gap-5 absolute right-0'>
                     <li>
                         <Link href="/login">
                             <p className="text-grayish-violet font-bold text-sm hover:text-very-dark-violet">Login</p>
