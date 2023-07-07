@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import BtnGetStarted from './BtnGetStarted'
 
 const Hero = () => {
     return (
@@ -13,9 +14,7 @@ const Hero = () => {
                 <p className="hero-description md:max-w-[90%] mt-1 lg:mb-10 mb-5 text-grayish-violet">
                     Build your brand's recognition and get detailed insights on how your links are performing.
                 </p>
-                <button className="bg-primary hover:opacity-60 text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-opacity-80">
-                    Get Started
-                </button>
+                <BtnGetStarted />
             </div>
             <div className="hero-right lg:w-1/2 md:w-11/12 w-full 2xl:static md:relative md:-right-32 mb-10">
                 <Image className='w-full' src="/images/illustration-working.svg" alt="working illustration" aria-hidden="true" role='presentation' width={500} height={500} />
