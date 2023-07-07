@@ -13,6 +13,7 @@ module.exports = {
         'very-dark-blue': 'var(--very-dark-blue)',
         'danger': 'var(--danger)',
         'gray': 'var(--gray)',
+        'light-gray': 'var(--light-gray)',
         'grayish-violet': 'var(--grayish-violet)',
         'very-dark-violet': 'var(--very-dark-violet)',
       },
