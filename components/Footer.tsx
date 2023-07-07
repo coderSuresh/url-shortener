@@ -1,4 +1,5 @@
 import React from 'react'
+import FooterContents from './FooterContents'
 
 const Footer = () => {
     return (
@@ -6,53 +7,63 @@ const Footer = () => {
             <div className='flex md:flex-wrap md:flex-row flex-col gap-10 justify-between md:text-start md:items-start text-center items-center'>
                 <h2 className='md:text-4xl text-3xl font-bold'>Shortly</h2>
 
-                <div>
-                    <h3 className='font-bold'>Features</h3>
-                    <ul className='mt-5 text-gray flex flex-col gap-y-2'>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Link Shortening</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Branded Links</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Analytics</a>
-                        </li>
-                    </ul>
-                </div>
+                <FooterContents
+                    title='Features'
+                    contents={[
+                        {
+                            name: 'Link Shortening',
+                            link: '#'
+                        },
+                        {
+                            name: 'Branded Links',
+                            link: '#'
+                        },
+                        {
+                            name: 'Analytics',
+                            link: '#'
+                        }
+                    ]}
+                />
 
-                <div>
-                    <h3 className='font-bold'>Resources</h3>
-                    <ul className='mt-5 text-gray flex flex-col gap-y-2'>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Blog</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Developers</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Support</a>
-                        </li>
-                    </ul>
-                </div>
+                <FooterContents
+                    title='Resources'
+                    contents={[
+                        {
+                            name: 'Blog',
+                            link: '#'
+                        },
+                        {
+                            name: 'Developers',
+                            link: '#'
+                        },
+                        {
+                            name: 'Support',
+                            link: '#'
+                        }
+                    ]}
+                />
 
-                <div>
-                    <h3 className='font-bold'>Company</h3>
-                    <ul className='mt-5 text-gray flex flex-col gap-y-2'>
-                        <li>
-                            <a href='#' className='hover:text-primary'>About</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Our Team</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Careers</a>
-                        </li>
-                        <li>
-                            <a href='#' className='hover:text-primary'>Contact</a>
-                        </li>
-                    </ul>
-                </div>
+                <FooterContents
+                    title='Company'
+                    contents={[
+                        {
+                            name: 'About',
+                            link: '#'
+                        },
+                        {
+                            name: 'Our Team',
+                            link: '#'
+                        },
+                        {
+                            name: 'Careers',
+                            link: '#'
+                        },
+                        {
+                            name: 'Contact',
+                            link: '#'
+                        }
+                    ]}
+                />
 
                 <div className='flex flex-col gap-y-5'>
                     <div className='flex gap-x-5'>
