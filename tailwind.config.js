@@ -16,6 +16,10 @@ module.exports = {
         'grayish-violet': 'var(--grayish-violet)',
         'very-dark-violet': 'var(--very-dark-violet)',
       },
+      backgroundImage: {
+        'bg-shorten-mobile': "url('/images/bg-shorten-mobile.svg')",
+        'bg-shorten-desktop': "url('/images/bg-shorten-desktop.svg')",
+      },
     },
   },
   plugins: [],

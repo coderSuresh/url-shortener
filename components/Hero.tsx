@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 const Hero = () => {
     return (
-        <section className="hero flex md:flex-row md:text-left text-center flex-col-reverse justify-between items-center gap-10 lg:px-32 md:px-16 px-5 md:mt-24 mt-10">
-            <div className="hero-left md:w-1/2 w-full">
+        <section className="hero flex md:flex-row md:text-left text-center flex-col-reverse justify-between items-center lg:px-32 md:px-16 px-5 mt-8">
+            <div className="hero-left lg:w-1/2 md:w-2/3 w-full">
                 <h1
                     className="hero-title text-very-dark-blue font-bold xl:text-7xl lg:text-6xl text-4xl"
                     style={{ lineHeight: 1.2 }}
@@ -17,7 +17,9 @@ const Hero = () => {
                     Get Started
                 </button>
             </div>
-            <Image className='md:w-1/2 lg:max-w-[720px] max-w-[512px] w-full 2xl:static md:fixed -right-20' src="/images/illustration-working.svg" alt="working illustration" aria-hidden="true" role='presentation' width={500} height={500} />
+            <div className="hero-right lg:w-1/2 md:w-11/12 w-full 2xl:static md:relative md:-right-32 mb-10">
+                <Image className='w-full' src="/images/illustration-working.svg" alt="working illustration" aria-hidden="true" role='presentation' width={500} height={500} />
+            </div>
         </section>
     )
 }
