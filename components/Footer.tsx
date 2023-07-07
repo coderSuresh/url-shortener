@@ -1,5 +1,6 @@
 import React from 'react'
 import FooterContents from './FooterContents'
+import Socials from './Socials'
 
 const Footer = () => {
     return (
@@ -65,22 +66,7 @@ const Footer = () => {
                     ]}
                 />
 
-                <div className='flex flex-col gap-y-5'>
-                    <div className='flex gap-x-5'>
-                        <a href='#' className='hover:text-primary'>
-                            <i className="fab fa-facebook-square text-2xl"></i>
-                        </a>
-                        <a href='#' className='hover:text-primary'>
-                            <i className="fab fa-twitter text-2xl"></i>
-                        </a>
-                        <a href='#' className='hover:text-primary'>
-                            <i className="fab fa-pinterest text-2xl"></i>
-                        </a>
-                        <a href='#' className='hover:text-primary'>
-                            <i className="fab fa-instagram text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
+                <Socials />
             </div>
 
         </footer>
