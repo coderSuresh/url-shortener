@@ -2,7 +2,7 @@ import InnerContentOfFeatureCards from "./InnerContentOfFeatureCards"
 
 const FeatureCards = () => {
     return (
-        <div className="features flex md:flex-row flex-col justify-center md:items-start items-center mt-20 mb-10 pb-10">
+        <div className="features flex md:flex-row flex-col justify-center md:items-start items-center mt-20 pb-20">
             <div className="feature_card lg:px-8 md:px-4 px-8 w-[300px] bg-white rounded-md md:text-xl md:text-start text-center font-bold text-lg">
                 <InnerContentOfFeatureCards
                     img='icon-brand-recognition.svg'
