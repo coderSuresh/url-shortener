@@ -1,6 +1,6 @@
 import React from 'react'
-import FooterContents from './FooterContents'
-import Socials from './Socials'
+import FooterContents from '@/components/Footer/FooterContents'
+import Socials from '@/components/Footer/Socials'
 
 const Footer = () => {
     return (

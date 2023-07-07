@@ -1,4 +1,4 @@
-import InnerContentOfFeatureCards from "./InnerContentOfFeatureCards"
+import InnerContentOfFeatureCards from "@/components/Features/InnerContentOfFeatureCards"
 
 const FeatureCards = () => {
     return (

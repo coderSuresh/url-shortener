@@ -1,5 +1,5 @@
 import Shorten from '@/components/Shorten'
-import FeatureCards from '@/components/FeatureCards'
+import FeatureCards from '@/components/Features/FeatureCards'
 
 const Features = () => {
     return (
