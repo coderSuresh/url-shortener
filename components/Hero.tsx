@@ -3,7 +3,7 @@ import BtnGetStarted from './BtnGetStarted'
 
 const Hero = () => {
     return (
-        <section className="hero flex md:flex-row md:text-left text-center flex-col-reverse justify-between items-center lg:px-32 md:px-16 px-5 mt-8">
+        <section className="hero overflow-x-hidden flex md:flex-row md:text-left text-center flex-col-reverse justify-between items-center lg:px-32 md:px-16 px-5 mt-8">
             <div className="hero-left lg:w-1/2 md:w-2/3 w-full">
                 <h1
                     className="hero-title text-very-dark-blue font-bold xl:text-7xl lg:text-6xl text-4xl"
