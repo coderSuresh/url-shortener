@@ -28,6 +28,7 @@ const Header = () => {
                 sm:bg-transparent bg-dark-violet
                 sm:p-0 p-5
                 rounded-lg
+                z-50
             `}>
 
                 <ul className="sm:ml-10 flex sm:flex-row flex-col sm:gap-5 gap-3">
