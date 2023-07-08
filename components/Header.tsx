@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <header className='lg:px-32 md:px-16 py-10 px-5 flex relative justify-start items-center'>
             <Link href="/">
-                <Image src="/images/logo.svg" width="100" height="30" alt='logo' />
+                <Image src="/images/logo.svg" width="121" height="33" alt='logo' />
             </Link>
 
             <button className='sm:hidden absolute right-5' onClick={() => setIsMenuOpen(prevState => !prevState)}>

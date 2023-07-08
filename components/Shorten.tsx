@@ -1,15 +1,26 @@
 "use client"
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ShortenLink from "@/components/ShortenLink"
 
 const Shorten = () => {
-
-    const [hasError, setHasError] = React.useState(false)
+    const [hasError, setHasError] = useState(false)
+    const [inputValue, setInputValue] = useState('')
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log('Form Submitted')
+
+        if (inputValue === '') setHasError(true)
+        else setHasError(false)
     }
+
+    const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+        const inputVal = e.currentTarget.value
+        setInputValue(inputVal)
+    }
+
+    useEffect(() => {
+        if (inputValue !== '') setHasError(false)
+    }, [inputValue])
 
     return (
         <>
@@ -18,20 +29,17 @@ const Shorten = () => {
                     <form onSubmit={handleFormSubmit} action="#" className="relative flex flex-wrap gap-x-5 gap-y-8 md:flex-row flex-col">
                         <div className="flex-grow">
                             <input
+                                value={inputValue}
+                                onInput={handleInputChange}
                                 type="text"
-                                className={
-                                    `${hasError ? 'outline-danger placeholder-danger' : ''} 
-                                px-4 w-full flex-grow py-2 rounded-md`
-                                }
+                                className={`${hasError ? 'border-2 border-danger placeholder-danger' : ''} px-4 w-full flex-grow py-2 rounded-md`}
                                 placeholder="Shorten a link here..."
                             />
-                            {
-                                hasError && (
-                                    <p className="text-danger absolute text-sm italic text-start mt-1">
-                                        Please add a link
-                                    </p>
-                                )
-                            }
+                            {hasError && (
+                                <p className="text-danger absolute text-sm italic text-start mt-1">
+                                    Please add a link
+                                </p>
+                            )}
                         </div>
                         <button type="submit" className="whitespace-nowrap px-4 h-fit py-2 rounded-md text-white bg-primary hover:opacity-70">
                             Shorten It!
