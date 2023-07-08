@@ -1,15 +1,15 @@
 "use client"
-
+import React from 'react'
 import ShortenLink from "@/components/ShortenLink"
 
 const Shorten = () => {
+
+    const [hasError, setHasError] = React.useState(false)
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log('Form Submitted')
     }
-
-    const hasError = true
 
     return (
         <>
