@@ -20,8 +20,8 @@ const Shorten = () => {
                             <input
                                 type="text"
                                 className={
-                                    `${hasError ? 'outline-danger w-full placeholder-danger' : ''} 
-                                px-4 max-w-full flex-grow py-2 rounded-md`
+                                    `${hasError ? 'outline-danger placeholder-danger' : ''} 
+                                px-4 w-full flex-grow py-2 rounded-md`
                                 }
                                 placeholder="Shorten a link here..."
                             />
