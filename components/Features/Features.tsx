@@ -3,7 +3,7 @@ import FeatureCards from '@/components/Features/FeatureCards'
 
 const Features = () => {
     return (
-        <section className="feature bg-light-gray mt-28">
+        <section className="feature bg-light-gray md:mt-28 mt-36">
             <Shorten />
 
             <div className="feature-content lg:px-32 md:px-16 px-5 mt-20">
