@@ -1,4 +1,7 @@
 "use client"
+
+import ShortenedLink from "@/components/ShortenLink"
+
 const Shorten = () => {
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -7,6 +10,7 @@ const Shorten = () => {
     }
 
     return (
+        <>
         <div className="shortner_section relative lg:px-32 md:px-16 px-5 md:-top-10 -top-16">
             <div className="shortner_container rounded-md text-center bg-dark-violet bg-no-repeat md:bg-cover bg-contain bg-right-top w-full md:bg-bg-shorten-desktop bg-bg-shorten-mobile px-8 py-6">
                 <form onSubmit={handleFormSubmit} action="#" className="flex flex-wrap gap-x-5 gap-y-3 md:flex-row flex-col">
@@ -16,7 +20,21 @@ const Shorten = () => {
                     </button>
                 </form>
             </div>
-        </div>
+            </div>
+
+            <ShortenedLink
+                originalLink="https://www.google.com"
+                shortenLink="https://rel.ink/abc123"
+            />
+            <ShortenedLink
+                originalLink="https://www.google.com"
+                shortenLink="https://rel.ink/abc123"
+            />
+            <ShortenedLink
+                originalLink="https://www.google.com"
+                shortenLink="https://rel.ink/abc123"
+            />
+        </>
     )
 }
 
