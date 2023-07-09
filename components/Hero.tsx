@@ -17,7 +17,7 @@ const Hero = () => {
                 <BtnGetStarted />
             </div>
             <div className="hero-right lg:w-1/2 md:w-11/12 w-full 2xl:static md:relative md:-right-32 mb-10">
-                <Image className='w-full' src="/images/illustration-working.svg" alt="working illustration" aria-hidden="true" role='presentation' width={500} height={500} />
+                <Image className='w-full' priority src="/images/illustration-working.svg" alt="working illustration" aria-hidden="true" role='presentation' width={500} height={500} />
             </div>
         </section>
     )

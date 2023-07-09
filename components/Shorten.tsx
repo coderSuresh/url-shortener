@@ -5,6 +5,8 @@ import ShortenLink from "@/components/ShortenLink"
 const Shorten = () => {
     const [hasError, setHasError] = useState(false)
     const [inputValue, setInputValue] = useState('')
+    const [shortenedLinks, setShortenedLinks] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -17,12 +19,47 @@ const Shorten = () => {
     }
 
     const shortenLink = () => {
+        setIsLoading(true)
         const apiURL = `https://api.shrtco.de/v2/shorten?url=${inputValue}`
         fetch(apiURL)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.ok) {
+                    saveShortenedLink(data.result.short_link)
+                    setShortenedLinks(getShortenedLinks())
+                } else {
+                    setHasError(true)
+                }
+                setIsLoading(false)
             })
+            .catch(err => {
+                console.log(err)
+                setIsLoading(false)
+            })
+    }
+
+    const saveShortenedLink = (shortLink: string) => {
+        const shortLinks = getShortenedLinks()
+        if (shortLinks) {
+            shortLinks.unshift({
+                originalLink: inputValue,
+                shortenLink: shortLink
+            })
+            localStorage.setItem('shortened_links', JSON.stringify(shortLinks))
+        }
+        else {
+            localStorage.setItem('shortened_links', JSON.stringify({
+                originalLink: inputValue,
+                shortenLink: shortLink
+            }))
+        }
+    }
+
+    const getShortenedLinks = () => {
+        const shortLinks = localStorage.getItem('shortened_links') ? JSON.parse(localStorage.getItem('shortened_links')!) : []
+        if (shortLinks) {
+            return shortLinks
+        }
     }
 
     const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -33,6 +70,25 @@ const Shorten = () => {
     useEffect(() => {
         if (inputValue !== '') setHasError(false)
     }, [inputValue])
+
+    const renderShortenedLinkElems = () => {
+        const shortLinks = getShortenedLinks()
+        if (shortLinks) {
+            return shortLinks.map((link: any, i: number) => {
+                return (
+                    <ShortenLink
+                        key={i}
+                        originalLink={link.originalLink}
+                        shortenLink={link.shortenLink}
+                    />
+                )
+            })
+        }
+    }
+
+    useEffect(() => {
+        renderShortenedLinkElems()
+    }, [shortenedLinks])
 
     return (
         <>
@@ -54,24 +110,13 @@ const Shorten = () => {
                             )}
                         </div>
                         <button type="submit" className={`whitespace-nowrap px-4 h-fit py-2 rounded-md text-white bg-primary hover:opacity-70 ${hasError ? 'mt-5' : ''}`}>
-                            Shorten It!
+                            {isLoading ? 'Shortening...' : 'Shorten It!'}
                         </button>
                     </form>
                 </div>
             </div>
 
-            <ShortenLink
-                originalLink="https://www.google.com"
-                shortenLink="https://rel.ink/abc123"
-            />
-            <ShortenLink
-                originalLink="https://www.google.com"
-                shortenLink="https://rel.ink/abc123"
-            />
-            <ShortenLink
-                originalLink="https://www.google.com"
-                shortenLink="https://rel.ink/abc123"
-            />
+            {renderShortenedLinkElems()}
         </>
     )
 }
