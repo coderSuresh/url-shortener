@@ -16,6 +16,7 @@ module.exports = {
         'light-gray': 'var(--light-gray)',
         'grayish-violet': 'var(--grayish-violet)',
         'very-dark-violet': 'var(--very-dark-violet)',
+        'modal-bg': 'var(--modal-bg)',
       },
       backgroundImage: {
         'bg-shorten-mobile': "url('/images/bg-shorten-mobile.svg')",
