@@ -10,7 +10,19 @@ const Shorten = () => {
         e.preventDefault()
 
         if (inputValue === '') setHasError(true)
-        else setHasError(false)
+        else {
+            setHasError(false)
+            shortenLink()
+        }
+    }
+
+    const shortenLink = () => {
+        const apiURL = `https://api.shrtco.de/v2/shorten?url=${inputValue}`
+        fetch(apiURL)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
