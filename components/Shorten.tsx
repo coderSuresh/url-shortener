@@ -28,6 +28,7 @@ const Shorten = () => {
                 if (data.ok) {
                     saveShortenedLink(data.result.short_link)
                     setShortenedLinks(getShortenedLinks())
+                    setInputValue('')
                 } else {
                     setHasError(true)
                     setError(data.error)
