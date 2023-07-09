@@ -109,7 +109,7 @@ const Shorten = () => {
                                 </p>
                             )}
                         </div>
-                        <button type="submit" className={`whitespace-nowrap px-4 h-fit py-2 rounded-md text-white bg-primary hover:opacity-70 ${hasError ? 'mt-5' : ''}`}>
+                        <button type="submit" className={`whitespace-nowrap px-4 h-fit py-2 rounded-md text-white bg-primary hover:opacity-70 ${hasError ? 'md:mt-0 mt-5' : ''}`}>
                             {isLoading ? 'Shortening...' : 'Shorten It!'}
                         </button>
                     </form>
