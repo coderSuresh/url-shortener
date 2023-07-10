@@ -84,6 +84,8 @@ const Shorten = () => {
                         key={i}
                         originalLink={link.originalLink}
                         shortenLink={link.shortenLink}
+                        getShortenedLinks={getShortenedLinks}
+                        setShortenedLinks={setShortenedLinks}
                     />
                 )
             })
