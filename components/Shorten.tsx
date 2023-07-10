@@ -108,7 +108,7 @@ const Shorten = () => {
 
     useEffect(() => {
         renderShortenedLinkElems()
-    }, [shortenedLinks])
+    }, [shortenedLinks, renderShortenedLinkElems])
 
     return (
         <>
