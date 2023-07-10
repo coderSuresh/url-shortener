@@ -5,11 +5,11 @@ import Link from 'next/link'
 type Props = {
     originalLink: string,
     shortenLink: string,
-    getShortenedLinks: () => any,
+    shortenedLinks: never[],
     setShortenedLinks: React.Dispatch<React.SetStateAction<never[]>>
 }
 
-const ShortenLink = ({ originalLink, shortenLink, getShortenedLinks, setShortenedLinks }: Props) => {
+const ShortenLink = ({ originalLink, shortenLink, shortenedLinks, setShortenedLinks }: Props) => {
 
     const [isCopied, setIsCopied] = React.useState(false)
 
@@ -34,7 +34,6 @@ const ShortenLink = ({ originalLink, shortenLink, getShortenedLinks, setShortene
     const deleteLink = (link: String) => {
         const consent = confirm('Are you sure you want to delete this link?')
         if (consent) {
-            const shortenedLinks = getShortenedLinks()
             const newShortenedLinks = shortenedLinks.filter((shortenedLink: any) => shortenedLink.shortenLink !== link)
             localStorage.setItem('shortened_links', JSON.stringify(newShortenedLinks))
             setShortenedLinks(newShortenedLinks)

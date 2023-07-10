@@ -28,7 +28,6 @@ const Shorten = () => {
             .then(data => {
                 if (data.ok) {
                     saveShortenedLink(data.result.short_link)
-                    setShortenedLinks(getShortenedLinks())
                     setInputValue('')
                 } else {
                     setHasError(true)
@@ -43,7 +42,7 @@ const Shorten = () => {
     }
 
     const saveShortenedLink = (shortLink: string) => {
-        const shortLinks = getShortenedLinks()
+        const shortLinks = localStorage.getItem('shortened_links') ? JSON.parse(localStorage.getItem('shortened_links')!) : []
         if (shortLinks) {
             shortLinks.unshift({
                 originalLink: inputValue,
@@ -59,12 +58,15 @@ const Shorten = () => {
         }
     }
 
-    const getShortenedLinks = () => {
-        const shortLinks = localStorage.getItem('shortened_links') ? JSON.parse(localStorage.getItem('shortened_links')!) : []
-        if (shortLinks) {
-            return shortLinks
+    useEffect(() => {
+        const getShortenedLinks = () => {
+            const shortLinks = localStorage.getItem('shortened_links') ? JSON.parse(localStorage.getItem('shortened_links')!) : []
+            if (shortLinks) {
+                return shortLinks
+            }
         }
-    }
+        setShortenedLinks(getShortenedLinks())
+    }, [shortenedLinks])
 
     const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
         const inputVal = e.currentTarget.value
@@ -76,7 +78,7 @@ const Shorten = () => {
     }, [inputValue])
 
     const renderShortenedLinkElems = () => {
-        const shortLinks = getShortenedLinks()
+        const shortLinks = shortenedLinks
         if (shortLinks) {
             return shortLinks.map((link: any, i: number) => {
                 return (
@@ -84,7 +86,7 @@ const Shorten = () => {
                         key={i}
                         originalLink={link.originalLink}
                         shortenLink={link.shortenLink}
-                        getShortenedLinks={getShortenedLinks}
+                        shortenedLinks={shortenedLinks}
                         setShortenedLinks={setShortenedLinks}
                     />
                 )
