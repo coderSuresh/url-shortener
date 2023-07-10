@@ -6,6 +6,7 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+    - [Extra](#extra)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -28,6 +29,9 @@ Users should be able to:
   - The `input` field is empty
   - A valid URL is not entered
   - Any error from the server should be displayed
+
+#### Extra
+Added functionality to delete the links from the local storage.
 
 ### Screenshot
 
