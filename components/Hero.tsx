@@ -12,7 +12,7 @@ const Hero = () => {
                     More than just shorter links
                 </h1>
                 <p className="hero-description md:max-w-[90%] mt-1 lg:mb-10 mb-5 text-grayish-violet">
-                    Build your brand's recognition and get detailed insights on how your links are performing.
+                    Build your brand&apos;s recognition and get detailed insights on how your links are performing.
                 </p>
                 <BtnGetStarted />
             </div>
