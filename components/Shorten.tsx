@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, SetStateAction } from 'react'
 import ShortenLink from "@/components/ShortenLink"
 import ErrorModal from "@/components/ErrorModal"
 
@@ -27,6 +27,15 @@ const Shorten = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.ok) {
+                    setShortenedLinks((prevState) => {
+                        return [
+                            {
+                                originalLink: inputValue,
+                                shortenLink: data.result.short_link
+                            },
+                            ...prevState
+                        ] as never[]
+                    })
                     saveShortenedLink(data.result.short_link)
                     setInputValue('')
                 } else {
@@ -65,8 +74,11 @@ const Shorten = () => {
                 return shortLinks
             }
         }
-        setShortenedLinks(getShortenedLinks())
-    }, [shortenedLinks])
+
+        const initialShortenedLinks = getShortenedLinks()
+        setShortenedLinks(initialShortenedLinks)
+    }, [])
+
 
     const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
         const inputVal = e.currentTarget.value
