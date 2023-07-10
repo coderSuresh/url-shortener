@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/coderSuresh/url-shortner](https://github.com/coderSuresh/url-shortner)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://url-shortner-codersuresh.vercel.app](https://url-shortner-codersuresh.vercel.app)
 
 ## My process
 
