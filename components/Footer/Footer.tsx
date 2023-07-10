@@ -1,6 +1,7 @@
 import React from 'react'
 import FooterContents from '@/components/Footer/FooterContents'
 import Socials from '@/components/Footer/Socials'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
@@ -67,6 +68,12 @@ const Footer = () => {
                 />
 
                 <Socials />
+            </div>
+
+            <div className='flex flex-col md:flex-row md:justify-between md:items-center gap-5 mt-10'>
+                <p className='text-center mx-auto text-sm'>Developed by
+                    <Link href="https://github.com/coderSuresh" className='text-danger'> @coderSuresh</Link>
+                </p>
             </div>
 
         </footer>
