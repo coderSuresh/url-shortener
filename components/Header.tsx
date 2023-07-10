@@ -59,10 +59,10 @@ const Header = () => {
                     </li>
                     <li className='w-full'>
                         <Link href="/signup">
-                            <button
+                            <span
                                 className="bg-primary w-full hover:opacity-60 text-white font-bold text-sm px-4 py-2 rounded-full hover:bg-opacity-80">
                                 Sign Up
-                            </button>
+                            </span>
                         </Link>
                     </li>
                 </ul>
