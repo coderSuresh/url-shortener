@@ -40,7 +40,7 @@ Added functionality to delete the links from the local storage.
 ### Links
 
 - Solution URL: [https://github.com/coderSuresh/url-shortner](https://github.com/coderSuresh/url-shortner)
-- Live Site URL: [https://url-shortner-codersuresh.vercel.app](https://url-shortner-codersuresh.vercel.app)
+- Live Site URL: [https://url-shortener-codersuresh.vercel.app](https://url-shortner-codersuresh.vercel.app)
 
 ## My process
 
