@@ -20,8 +20,8 @@ const Shorten = () => {
             setHasError(false)
             const res = await shorten(inputValue) as any
 
-            if (res.error) {
-                setError(res.error)
+            if (res.error.errors[0]) {
+                setError(res.error.errors[0])
                 setIsLoading(false)
                 return
             }
