@@ -1,7 +1,8 @@
 "use client"
-import React, { useState, useEffect, SetStateAction } from 'react'
+import React, { useState, useEffect } from 'react'
 import ShortenLink from "@/components/ShortenLink"
 import ErrorModal from "@/components/ErrorModal"
+import { shorten } from "@/actions/shorten"
 
 const Shorten = () => {
     const [hasError, setHasError] = useState(false)
@@ -10,44 +11,27 @@ const Shorten = () => {
     const [shortenedLinks, setShortenedLinks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if (inputValue === '') setHasError(true)
         else {
+            setIsLoading(true)
             setHasError(false)
-            shortenLink()
-        }
-    }
+            const res = await shorten(inputValue) as any
 
-    const shortenLink = () => {
-        setIsLoading(true)
-        const apiURL = `https://api.shrtco.de/v2/shorten?url=${inputValue}`
-        fetch(apiURL)
-            .then(res => res.json())
-            .then(data => {
-                if (data.ok) {
-                    setShortenedLinks((prevState) => {
-                        return [
-                            {
-                                originalLink: inputValue,
-                                shortenLink: data.result.short_link
-                            },
-                            ...prevState
-                        ] as never[]
-                    })
-                    saveShortenedLink(data.result.short_link)
-                    setInputValue('')
-                } else {
-                    setHasError(true)
-                    setError(data.error)
-                }
+            if (res.error) {
+                setError(res.error)
                 setIsLoading(false)
-            })
-            .catch(err => {
-                console.log(err)
-                setIsLoading(false)
-            })
+                return
+            }
+
+            saveShortenedLink(res.data.data.tiny_url)
+
+            setIsLoading(false)
+
+            setInputValue('')
+        }
     }
 
     const saveShortenedLink = (shortLink: string) => {
@@ -65,6 +49,16 @@ const Shorten = () => {
                 shortenLink: shortLink
             }))
         }
+
+        setShortenedLinks(
+            [
+                {
+                    originalLink: inputValue,
+                    shortenLink: shortLink
+                },
+                ...shortenedLinks
+            ] as any
+        )
     }
 
     useEffect(() => {
